@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<section>
+<form method='POST'>
+   
+        <input name="user_name" type="text" value="{{user_name}}" placeholder="USERNAME">
+   
+        <input name="password" type="password" value="{{password}}" placeholder="PASSWORD">
+  
+        <input name="ver_password" type="password" value="{{ver_password}}" placeholder="VERIFY PASSWORD">
+     
+        <input name="email" type="text" value="{{email}}" placeholder="EMAIL">
+
+    <input type="submit" value="SIGN UP!">
+
+</form>
+
+</div>
+
+{% endblock %}

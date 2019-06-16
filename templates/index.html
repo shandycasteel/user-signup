@@ -2,21 +2,23 @@
 
 {% block content %}
 
-<section>
 <form method='POST'>
         <h1>LC101 - Unit 2</h1>
    
-        <input name="user_name" type="text" value="{{user_name}}" placeholder="Username">
+        <input name="user_name" type="text" value="{{user_name}}" placeholder="Username" title="Must contain 3-20 characters, no spaces">
+        <span class="error">{{name_error}}</span>
    
-        <input name="password" type="password" value="{{password}}" placeholder="Password">
+        <input name="password" type="password" value="{{password}}" placeholder="Password" title="Must contain 3-20 characters, no spaces">
+        <span class="error">{{pass_error}}</span>
   
-        <input name="ver_password" type="password" value="{{ver_password}}" placeholder="Verify Password">
+        <input name="ver_pass" type="password" value="{{ver_password}}" placeholder="Verify Password" title="Must match Password.">
+        <span class="error">{{ver_pass_error}}</span>
      
-        <input name="email" type="text" value="{{email}}" placeholder="Email (Optional)">
+        <input name="email" type="text" value="{{email}}" placeholder="Email (Optional)" title="Valid email address with 3-20 characters only, no spaces.">
+        <span class="error">{{email_error}}</span>
 
     <input type="submit" value="Sign Up!">
 
-</form>
 
 </div>
 

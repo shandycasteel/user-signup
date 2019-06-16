@@ -1,6 +1,6 @@
 html,
 body {
-    margin: 5em;
+    margin: 2.5em;
     background-color: whitesmoke;
 }
 
@@ -15,7 +15,6 @@ form{
 input{
     padding-left: 0.5em;
     height: 2.5em;
-    text-transform: uppercase;
     font-size: 0.9em;
 }
 
@@ -31,8 +30,16 @@ input[type=submit] {
 
 }
 
-h1 {
+h1, h2 {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-    text-transform: uppercase;
     text-align: center;
+}
+
+h1 {
+    text-transform: uppercase;
+    border-bottom: 1px solid slategrey;
+}
+
+.error {
+    color: red;
 }

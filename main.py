@@ -6,7 +6,7 @@ app = Flask(__name__)
 app.config["DEBUG"] = True
 
 
-@app.route("/", methods=["GET", "POST"])
+@app.route("/", methods=["POST", "GET"])
 def validate_form():
     if request.method == "POST":
         name = request.form["user_name"]
@@ -18,14 +18,14 @@ def validate_form():
         if tested[0]:
             return render_template("welcome.html", name=name)
         else:
-            return render_template("index.html", name=name, email=email, 
+            return render_template("index.html", user_name=name, email=email, 
                                     name_error=tested[1], pass_error=tested[2],
                                     ver_pass_error=tested[3], email_error=tested[4])
 
     return render_template("index.html")
 
 
-def validate_check(name, pswd, pswd_chk, email=""):
+def validate_check(name, pswd, pswd_chk, email):
     error = "* Invalid "
     user_error = ""
     pswd_error = ""
@@ -44,6 +44,7 @@ def validate_check(name, pswd, pswd_chk, email=""):
         valid = False
     if not validate_email(email):
         mail_error = error + "email"
+        valid = False
         
     return [valid, user_error, pswd_error, pswd_chk_error, mail_error]
 
@@ -56,15 +57,16 @@ def validate_name_pass(name_pass):
 
 
 def validate_email(email):
-    if email == "":
+    if len(email) == 0:
         return True
     else:
-        if len(email) < 3 or len(email) > 20 or email.count(" ") != 0:
-            return False
-        if email.count(".") != 1 and email.count("@") != 1:
+        if len(email) < 3 or len(email) > 20:
             return False
         else:
-            return True
+            if email.count(" ") == 0 and email.count(".") == 1 and email.count("@") == 1:
+                return True
+            else:
+                return False
 
 
 app.run()
